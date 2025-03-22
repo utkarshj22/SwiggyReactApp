@@ -1,0 +1,28 @@
+{
+  "name": "swiggyreact",
+  "version": "1.0.0",
+  "description": "React Food Delivery App",
+  "main": "App.js",
+  "scripts": {
+    "start" : "parcel index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utkarshj22/SwiggyReactApp.git"
+  },
+  "author": "Utkarsh Joshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/utkarshj22/SwiggyReactApp/issues"
+  },
+  "homepage": "https://github.com/utkarshj22/SwiggyReactApp#readme",
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
