@@ -3,6 +3,7 @@ import RestroCard from './RestroCard';
 import { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
+import { filterData } from '../utils/helper';
 
 const Body = () => {
   const [search, setSearch] = useState('');
@@ -28,13 +29,6 @@ const Body = () => {
     );
   }
 
-  const filterRestaurants = (search, restaurants) => {
-    const filteredRestaurants = restaurants.filter((restaurant) =>
-      restaurant.info.name.toLowerCase().includes(search.toLowerCase()),
-    );
-    setFilteredRestaurants(filteredRestaurants);
-  };
-
   return restaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -50,13 +44,16 @@ const Body = () => {
         <button
           type="button"
           className="search-button"
-          onClick={() => filterRestaurants(search, restaurants)}
+          onClick={() => {
+            const data = filterData(search, restaurants);
+            setFilteredRestaurants(data);
+          }}
         >
           Search
         </button>
       </div>
       <div className="restro-list">
-        {filterRestaurants.length === 0 ? (
+        {filteredRestaurants.length === 0 ? (
           <h3>No filtered Restro</h3>
         ) : (
           filteredRestaurants.map((restro) => (
